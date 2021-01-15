@@ -8,9 +8,10 @@ export default class TaskForm extends Component {
     }
 
     onSubmit = e => {
+        this.props.addTask(this.state.title, this.state.description)
 
         //With this the page does not refresh when the form is submitted
-        e.preventDefault(); 
+        e.preventDefault()
     }
 
     onChange = e => {
