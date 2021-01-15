@@ -12,11 +12,15 @@ class App extends Component {
     tasks: tasks
   }
   render() {
-    return <div>
+    return <div style = {styles} >
       <Tasks tasks = { this.state.tasks } />
       
     </div>
   }
+}
+
+const styles = {
+  padding: '20px'
 }
 
 export default App;
