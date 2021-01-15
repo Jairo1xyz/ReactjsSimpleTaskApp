@@ -30,11 +30,30 @@ class App extends Component {
     })
   }
 
+  deleteTask = id => {
+    this.setState({
+      tasks: this.state.tasks.filter( task => task.id !== id )
+    })
+  }
+
+  toggleDone = id => {
+    const reloadedTasks = this.state.tasks.map( task => {
+      if(task.id === id){
+        task.done = !task.done
+      }
+      return task
+    } )
+
+    this.setState({
+      tasks: reloadedTasks
+    })
+  }
+
   render() {
     return <div style = {styles} >
       <h1 style = {{ marginTop: '0px' }} >Tasks</h1>
       <TaskForm addTask = { this.addTask } />
-      <Tasks tasks = { this.state.tasks } />
+      <Tasks tasks = { this.state.tasks } deleteTask = { this.deleteTask }  toggleDone = {this.toggleDone} />
       
     </div>
   }

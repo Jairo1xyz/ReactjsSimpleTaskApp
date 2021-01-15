@@ -10,6 +10,15 @@ class Task extends Component {
             textDecoration: this.props.task.done ? 'line-through' : 'none'
         }
     }
+
+    deleteTask = () => {
+        this.props.deleteTask( this.props.task.id )
+    }
+
+    toggleDone = () => {
+        this.props.toggleDone( this.props.task.id )
+    }
+
     render() {
 
         const { task } = this.props;
@@ -18,8 +27,8 @@ class Task extends Component {
             <h2 style = { this.styleCompletedOrNot() } >{ task.title }</h2>
             <p style = {{ margin: '5px 0px' }} >
                 { task.description } - { task.done ? 'Done' : 'To do' } - { task.id }
-                <input type="checkbox" style = {{ marginLeft: '20px' }} />
-                <button style = { btnDelete } >x</button>
+                <input type="checkbox" style = {{ marginLeft: '20px' }} onChange = { this.toggleDone } />
+                <button style = { btnDelete } onClick = { this.deleteTask } >x</button>
             </p>
             <hr/>
         </div>

@@ -6,7 +6,13 @@ import Task from "./Task";
 class Tasks extends Component {
     render() {
         return <div>
-            { this.props.tasks.map( e => <Task task= { e } key= {e.id} /> )}
+            { this.props.tasks.map( e => 
+            <Task 
+            task= { e } 
+            key= {e.id} 
+            deleteTask = { this.props.deleteTask } 
+            toggleDone = { this.props.toggleDone }
+            /> )}
         </div>
     }
 }
