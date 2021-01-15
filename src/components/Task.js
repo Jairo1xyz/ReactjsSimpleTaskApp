@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Task extends Component {
 
@@ -23,6 +24,12 @@ class Task extends Component {
             <hr/>
         </div>
     }
+}
+
+// With this you specify the prop type is expected to receive
+// which is good for debugging
+Task.propTypes = {
+    task: PropTypes.object.isRequired
 }
 
 const btnDelete = {
